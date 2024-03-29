@@ -10,7 +10,9 @@ As a Data Engineer at Bouldering Project, you will be responsible for building o
 
 ## Instructions and Guidelines
 
-You are meant to spend about 1 hour on this exercise. Questions 1 and 2 are meant to take ~10 minutes each. Question 3 is significantly more complex and we do not expect that you finish the exercise in the time alloted. That's ok! Please submit what you have (more details below).
+You are meant to spend about 1 hour total on this exercise.
+
+Questions 1 and 2 are meant to take ~10 minutes each. Question 3 is significantly more complex and we do not expect that you finish the exercise in the time allotted. That's ok! Please submit what you have completed (more details below).
 
 We may invite you to a follow up call to review all three exercises.
 
@@ -18,11 +20,9 @@ Please fork this repo and record your responses in the included folder. You shou
 
 ## Exercises
 
-### Exercise 1 (5-10 minutes)
+### Exercise 1: SQL Query (5-10 minutes)
 
-Complete this exercise [here](responses/exercise-1.sql).
-
-Given the data sources [transactions](data-sources/transactions.csv) and [order items](data-sources/order-items.csv), write a SQL query to identify and **group the total amount refunded by location and month**.
+Given the data sources [transactions](data-sources/transactions.csv) and [order items](data-sources/order-items.csv), write and submit a SQL query that identifies and **groups the total amount refunded by location and month**.
 
 The following database hosts the same data/schema if you'd like to debug your SQL in a running environment. The database is running MySQL 8.
 
@@ -34,25 +34,23 @@ Password: bouldering
 Database: bp_data_exercise
 ```
 
-### Exercise 2 (10-15 minutes)
+### Exercise 2: Data Modeling (10-15 minutes)
 
-Complete this exercise [here](responses/exercise-2.md).
-
-Select any business process related to (climbing) gyms, or yoga/fitness studios if you are more familiar with those, and design a fact table that models that process. You should also include at least one dimension.
+Select any business process related to (climbing) gyms, or yoga/fitness studios if you are more familiar with those, and design a fact table that models that process. You should also include at least one dimension related to the facts.
 
 Examples business processes may include:
 - Checking in to the gym
 - Purchasing a membership
 
-If you're near one of our [Bouldering Project locations](https://boulderingproject.com/all-locations/) and want to visit a gym to get a better feel for this exercise, please reach out to austin.wu@boulderingproject.com and we'll get you set up with a free day pass. The visit is totally optional, especially if you're already relatively familiar with climbing gyms.
+If you're near one of our [Bouldering Project locations](https://boulderingproject.com/all-locations/) and want to visit a gym to get a better feel of our business for this exercise, please reach out to austin.wu@boulderingproject.com and we'll get you set up with a free day pass. The visit is totally optional, especially if you're already relatively familiar with climbing gyms.
 
 Alternatively, you can also visit our [Portal](https://boulderingproject.portal.approach.app) to browse our offerings online.
 
-### Exercise 3 (40+ minutes)
+### Exercise 3: Messy Data Cleanup (40+ minutes)
 
-You are welcome to complete this exercise in any language you prefer (at BP we mostly use Python and JS).
+You are welcome to complete the following exercise in any language you prefer. At BP we mostly use Python and JS.
 
-Given the datasets [table history](data-sources/table-history.csv) and [status changes](data-sources/status-changes.csv), create a new dataset that shows the start and end of end date of each membership. Your output will look something like:
+Given the datasets [table history](data-sources/table-history.csv) and [status changes](data-sources/status-changes.csv), create a new dataset that shows the start and end of each membership. Your output will look something like:
 
 | customer_id | start_date | end_date | end_reason |
 | --- | --- | --- | --- |
@@ -73,23 +71,23 @@ The status changes table records scheduled status changes. For example:
 status_id,customer_id,postdate,status,start_date
 2259134,1670321,"2019-10-31 16:01:06",FREEZE,"2019-11-01 00:00:00"
 ```
-Means that the customer `1670321` requested their membership to be frozen starting 2019-11-01. The request was put in on 2019-10-31.
+Means that the customer `1670321` requested their membership to be frozen starting `2019-11-01` (this would be their membership end date). The request was put in on `2019-10-31`.
 
 Some additional context that will be useful:
 
 - `customer_type`
-    - "GUEST" = not a member
+    - "GUEST" = not a member/no membership
     - "MEMBER" = holds an active membership
-    - "PUNCH CARD" = not a member, uses a multi-visit pass
+    - "PUNCH CARD" = not a member/no membership, uses a multi-visit pass
 
 - `current_status`
     - "OK" = neutral status; if `customer_type` is "MEMBER" then active member
-    - "FROZEN" = membership has ended (a "freeze" or pause has started)
-    - "TERMINATED" = membership has ended (cancelled or expired)
+    - "FROZEN" = membership has ended and a "freeze" or pause has started
+    - "TERMINATED" = membership has ended through cancellation or expiration
 
 - `membership_form_of_payment`
     - "NONE" = free OR does not have a membership
-    - "PREPAID" = non-recurring membership that expires on the `membership_end_date` (when frozen set the `end_reason` to "freeze")
-    - "BILLME" = recurring membership (when terminated set the `end_reason` to "cancel")
+    - "PREPAID" = non-recurring membership that expires on the `membership_end_date`; these memberships end in expiration
+    - "BILLME" = recurring membership; these memberships end in cancellation or a freeze
 
-As previously mentioned, it's acceptable and expected that you may not finish this exercise in the time alloted. You should submit whatever code you've completed in the time allotted; with this in mind, it is best if you submit a script that may be non-functioning but still outlines the general structure of how you would answer the question. In line comments and a paragraph explaining your approach are also encouraged. If you have any questions on how to interpret the dataset, you may email austin.wu@boulderingproject.com.
+As previously mentioned, it's acceptable and expected that you may not finish this exercise in the time allotted. You should submit whatever code you've completed in the time allotted; with this in mind, it is best if you submit a script that may be non-functioning but still outlines the general structure of how you would answer the question. In line comments and a paragraph explaining your approach are also encouraged. If you have any questions on how to interpret the dataset, you may email austin.wu@boulderingproject.com.

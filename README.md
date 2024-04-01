@@ -16,7 +16,7 @@ Questions 1 and 2 are meant to take ~10 minutes each. Question 3 is significantl
 
 We may invite you to a follow up call to review all three exercises.
 
-Please fork this repo and record your responses in the included folder. You should submit a link to your forked repo to austin.wu@boulderingproject.com. You're welcome to keep the forked repository private, just invite austin.wu@boulderingproject.com as a collaborator.
+Please fork this repo (and make it private) and record your responses in the included folder. You should submit a link to your forked repo to austin.wu@boulderingproject.com, also inviting austin.wu@boulderingproject.com as a collaborator.
 
 ## Exercises
 

@@ -16,7 +16,13 @@ Questions 1 and 2 are meant to take ~10 minutes each. Question 3 is significantl
 
 We may invite you to a follow up call to review all three exercises.
 
-Please fork this repo (and make it private) and record your responses in the included folder. You should submit a link to your forked repo to austin.wu@boulderingproject.com, also inviting austin.wu@boulderingproject.com as a collaborator.
+Please clone this repo, push it to your own **private** repo, and then share austin.wu@boulderingproject.com as a collaborator:
+```sh
+git clone git@github.com:bouldering-project/data-engineer-24.git
+cd data-engineer-24
+git remote set-url origin git@github.com:austinwu/bp-takehome.git # replace with your own private repo
+git push --set-upstream origin main
+```
 
 ## Exercises
 
